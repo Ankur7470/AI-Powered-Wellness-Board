@@ -20,14 +20,15 @@ It guides users through a structured 4-screen flow to capture their profile, gen
 
 ### Technology Stack
 
-| Technology        | Purpose                                            | Why it was Chosen                                                                      |
-| :---------------- | :------------------------------------------------- | :------------------------------------------------------------------------------------- |
-| **React**         | Frontend UI Library                                | For building declarative, component-based user interfaces and efficient state management in a Single Page Application. |
-| **Vite**          | Build Tool & Dev Server                            | For its lightning-fast development server, optimized builds, and out-of-the-box support for modern web development. |
-| **Tailwind CSS**  | CSS Framework                                      | For its utility-first approach, enabling rapid UI development with highly customizable and consistent styling. |
-| **Axios**         | HTTP Client                                        | For making efficient and reliable asynchronous HTTP requests to external APIs, particularly the AI service. |
-| **React Router DOM** | Routing Library                                    | For handling declarative navigation and routing within the Single Page Application, enabling multiple screens and views. |
-| **React Context API + useReducer** | State Management Library. |          | For handling Global state management with predictable updates. 
+| Technology                 | Purpose                     | Why it was Chosen                                                                 |
+| :-------------------------- | :-------------------------- | :-------------------------------------------------------------------------------- |
+| **React**                  | Frontend UI Library         | For building declarative, component-based user interfaces and efficient state management in a Single Page Application. |
+| **Vite**                   | Build Tool & Dev Server     | For its lightning-fast development server, optimized builds, and out-of-the-box support for modern web development. |
+| **Tailwind CSS**           | CSS Framework               | For its utility-first approach, enabling rapid UI development with highly customizable and consistent styling. |
+| **Axios**                  | HTTP Client                 | For making efficient and reliable asynchronous HTTP requests to external APIs, particularly the AI service. |
+| **React Router DOM**       | Routing Library             | For handling declarative navigation and routing within the Single Page Application, enabling multiple screens and views. |
+| **React Context API + useReducer** | State Management Library | For handling global state management with predictable updates across components. |
+
 
 ### Prerequisites
 
@@ -314,32 +315,32 @@ This architecture makes the app **clean, predictable, and easy to extend** — m
 ## Screenshots
 
 Below are some sample screenshots showcasing the flow of the application.  
-(Replace the placeholder image paths with your actual screenshots or hosted links.)
 
 ### 1. Profile Screen
 Captures user details such as **Age, Gender, and Wellness Goal**.  
-![Profile Screen](./screenshots/profile.png)
+![Profile Screen](./public/screenshots/profile.png)
 
 ---
 
 ### 2. Tip Board Screen
 Displays **5 AI-generated personalized wellness tips** in an interactive card layout.  
 Includes options to **regenerate tips** and navigate to details.  
-![Tip Board Screen](./screenshots/tipboard.png)
+![Tip Board Screen](./public/screenshots/tipBoard.png)
 
 ---
 
 ### 3. Detail Screen
 Provides a **long explanation (300+ words)** and **step-by-step action plan** for the selected tip.  
 Users can save tips to favorites from here.  
-![Detail Screen](./screenshots/detail.png)
+![Detail Screen](./public/screenshots/detail.png)
+![Detail Screen](./public/screenshots/detail1.png)
 
 ---
 
 ### 4. Saved Tips Screen
 A dedicated board that displays all **favorite tips saved by the user**.  
 Tips are stored in **local storage**, ensuring persistence across sessions.  
-![Saved Tips Screen](./screenshots/savedtips.png)
+![Saved Tips Screen](./public/screenshots/savedTip.png)
 
 ---
 
@@ -352,25 +353,39 @@ You can also explore the app live here:
 ## Known Issues and Improvements
 
 ### Known Issues
-- **AI Output Errors:**  
-  Sometimes the Gemini model may return malformed or incomplete JSON despite schema enforcement. This leads to errors like *"AI output was malformed JSON"*.
-- **Generic Error Messages:**  
-  Currently, error messages shown to the user are not very descriptive. For example, errors from Tip generation and Detail generation are handled the same way.
-- **Persistence Limitation:**  
-  Local storage is used for saving tips, which works well but has limitations like no multi-device sync.
-- **Performance Overhead:**  
-  Since all state is stored in a single context provider, re-renders can be triggered unnecessarily.
+
+- **AI Output Errors**  
+  Sometimes the Gemini model may return malformed or incomplete JSON despite schema enforcement. This leads to errors like *"AI output was malformed JSON"*.  
+
+- **Emoji Inconsistency**  
+  In some cases, the AI returns the **name of an emoji** (e.g., `"smiling face"`) instead of the actual emoji character (😊).  
+
+- **Generic Error Messages**  
+  Error messages shown to the user are not very descriptive. For example, errors from tip generation and detail generation are currently handled in the same way.  
+
+- **Persistence Limitation**  
+  Local storage is used for saving tips, which works well but has limitations, such as no multi-device sync.  
+
+- **Performance Overhead**  
+  Since all state is stored in a single context provider, unnecessary re-renders can occur, affecting performance on lower-end devices.  
 
 ### Improvements
-- **Better Error Handling:**  
-  Add more specific error states (e.g., `DETAIL_FAILURE`, `TIPS_FAILURE`) with user-friendly retry prompts.
-- **Enhanced Persistence:**  
-  Introduce cloud sync or backend storage for saved tips so users can access them across devices.
-- **UI/UX Polish:**  
-  Improve transitions between screens with animation libraries like **Framer Motion**.  
-  Add accessibility features like ARIA labels and keyboard navigation.
-- **Context Optimization:**  
-  Split the context into separate state and dispatch providers to reduce re-renders.
+
+- **Better Error Handling**  
+  Add more specific error states (e.g., `DETAIL_FAILURE`, `TIPS_FAILURE`) with clear and user-friendly retry prompts.  
+
+- **Enhanced Persistence**  
+  Introduce cloud sync or backend storage for saved tips so users can access them across multiple devices.  
+
+- **UI/UX Polish**  
+  Improve screen transitions with animation libraries like **Framer Motion** for smoother interactions.  
+  Add accessibility features such as ARIA labels, proper semantic elements, and keyboard navigation.  
+
+- **Context Optimization**  
+  Split the context into smaller, dedicated providers (e.g., Profile, Tips, SavedTips) to reduce unnecessary re-renders and improve performance.  
+
+- **Multi-Language Support**  
+  Provide recommendations in multiple languages to make the app accessible to a wider global audience.  
 
 ---
 
@@ -378,12 +393,10 @@ You can also explore the app live here:
 
 Some potential enhancements that go beyond the base requirements:
 
-- **Gamification:**  
-  Add streaks, badges, or progress tracking to keep users motivated.
 - **Advanced Personalization:**  
   Expand the profile with additional factors (sleep, stress, work-life balance) to generate even more tailored tips.
+  
 - **Offline Mode:**  
   Cache previously generated tips so users can view them without internet access.
-- **Mobile-Friendly PWA:**  
-  Make the app installable as a Progressive Web App (PWA) for a native mobile-like experience.
+
 

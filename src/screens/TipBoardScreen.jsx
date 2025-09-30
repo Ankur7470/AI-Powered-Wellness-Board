@@ -13,12 +13,10 @@ const TipBoardScreen = () => {
   const savedTipIds = useMemo(() => new Set((savedTips || []).map((t) => t.id)), [savedTips]);
 
   const handleCardClick = (tip) => {
-    // Guarded in provider — will set loading and navigate after fetching detail
     fetchTipDetail(tip);
   };
 
   const handleRegenerate = () => {
-    // Prevent calling fetchTips when profile is missing
     if (!profile) {
       // Send user back to profile screen to fill details
       dispatch({ type: SET_CURRENT_SCREEN, payload: 'Profile' });
@@ -31,7 +29,7 @@ const TipBoardScreen = () => {
     dispatch({ type: SET_CURRENT_SCREEN, payload: 'SavedTips' });
   };
 
-  // If no profile has been set yet, show a clear CTA instead of blank labels and actions.
+  // If no profile has been set yet
   if (!profile) {
     return (
       <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
@@ -53,7 +51,6 @@ const TipBoardScreen = () => {
           </div>
         </div>
 
-        {/* Small hint / explanation */}
         <div className="mt-6 text-center text-sm text-gray-500">
           Tip: After you set your profile and click "Generate My Tips", AI-generated recommendations will appear here.
         </div>

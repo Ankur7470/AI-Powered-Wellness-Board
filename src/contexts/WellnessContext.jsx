@@ -12,11 +12,11 @@ import {
   REMOVE_TIP,
 } from './actions';
 
-// --- Context Definitions ---
+// Context Definitions 
 const WellnessStateContext = createContext(null);
 const WellnessDispatchContext = createContext(null);
 
-// --- State Initialization ---
+// State Initialization
 const initialTransientState = {
   profile: null,
   currentTips: [], 
@@ -28,7 +28,7 @@ const initialTransientState = {
   savedTips: [],
 };
 
-// --- Reducer Logic ---
+// Reducer Logic
 const wellnessReducer = (state, action) => {
   switch (action.type) {
     case SET_PROFILE:
@@ -76,7 +76,7 @@ const wellnessReducer = (state, action) => {
   }
 };
 
-// --- Provider Component ---
+// Provider Component
 export const WellnessProvider = ({ children }) => {
   const [savedTips, setSavedTips] = useLocalStorage('aiWellnessBoardTips', []);
 
@@ -146,7 +146,7 @@ export const WellnessProvider = ({ children }) => {
   );
 };
 
-// --- Custom Hooks ---
+// Custom Hooks
 export const useWellnessState = () => {
   const context = useContext(WellnessStateContext);
   if (context === null) {
