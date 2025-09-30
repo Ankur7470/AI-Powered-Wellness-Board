@@ -30,13 +30,8 @@ const ProfileScreen = () => {
       return;
     }
 
-    // 1. Show loading immediately
     dispatch({ type: FETCH_TIPS_LOADING });
-
-    // 2. Update Context with Profile
     dispatch({ type: SET_PROFILE, payload: formData });
-
-    // 3. Start fetching tips (async action)
     fetchTips(formData);
   };
 
@@ -52,11 +47,11 @@ const ProfileScreen = () => {
   }
 
   return (
-    <div className="max-w-xl mx-auto p-8 bg-white shadow-2xl rounded-xl">
-      <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
+    <div className="w-full max-w-xl mx-auto p-4 sm:p-6 md:p-8 bg-white shadow-2xl rounded-xl">
+      <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 sm:mb-6 text-center">
         Your Wellness Profile
       </h1>
-      <p className="text-gray-600 mb-8 text-center">
+      <p className="text-gray-600 mb-6 sm:mb-8 text-center text-sm sm:text-base">
         Tell us about yourself to receive personalized recommendations.
       </p>
 
@@ -75,8 +70,9 @@ const ProfileScreen = () => {
             value={formData.age}
             onChange={handleChange}
             placeholder="e.g., 30"
-            className={`${inputClass} ${validationError ? 'border-red-500' : 'border-gray-300'
-              }`}
+            className={`${inputClass} ${
+              validationError ? 'border-red-500' : 'border-gray-300'
+            }`}
             required
             min="18"
             max="100"

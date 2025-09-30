@@ -27,13 +27,9 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Global Navigation */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavBar />
-
-      {/* Main content */}
-      <div className="py-10 max-w-6xl mx-auto px-4">
-        {/* Global Loading/Error Handling */}
+      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-10 py-6 sm:py-10">
         {isLoading && currentScreen !== "Profile" ? (
           <div className="flex justify-center items-center h-64">
             <LoadingIndicator />
@@ -45,7 +41,7 @@ function App() {
         ) : (
           renderScreen()
         )}
-      </div>
+      </main>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 const Button = ({ children, onClick, variant = 'primary', disabled = false, className = '' }) => {
-  const baseStyle = "px-6 py-3 rounded-lg font-semibold transition duration-200 ease-in-out cursor-pointer";
+  const baseStyle =
+    "px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition duration-200 ease-in-out cursor-pointer text-sm sm:text-base";
   let variantStyle = "";
 
   switch (variant) {
