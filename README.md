@@ -26,7 +26,6 @@ It guides users through a structured 4-screen flow to capture their profile, gen
 | **Vite**                   | Build Tool & Dev Server     | For its lightning-fast development server, optimized builds, and out-of-the-box support for modern web development. |
 | **Tailwind CSS**           | CSS Framework               | For its utility-first approach, enabling rapid UI development with highly customizable and consistent styling. |
 | **Axios**                  | HTTP Client                 | For making efficient and reliable asynchronous HTTP requests to external APIs, particularly the AI service. |
-| **React Router DOM**       | Routing Library             | For handling declarative navigation and routing within the Single Page Application, enabling multiple screens and views. |
 | **React Context API + useReducer** | State Management Library | For handling global state management with predictable updates across components. |
 
 
@@ -380,9 +379,6 @@ You can also explore the app live here:
 - **UI/UX Polish**  
   Improve screen transitions with animation libraries like **Framer Motion** for smoother interactions.  
   Add accessibility features such as ARIA labels, proper semantic elements, and keyboard navigation.  
-
-- **Context Optimization**  
-  Split the context into smaller, dedicated providers (e.g., Profile, Tips, SavedTips) to reduce unnecessary re-renders and improve performance.  
 
 - **Multi-Language Support**  
   Provide recommendations in multiple languages to make the app accessible to a wider global audience.  
