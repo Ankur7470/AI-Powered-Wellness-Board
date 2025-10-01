@@ -39,8 +39,8 @@ It guides users through a structured 4-screen flow to capture their profile, gen
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Ankur7470/AI-Powered-Wellness-Board-d865e66.git
-cd AI-Powered-Wellness-Board-d865e66
+git clone https://github.com/Ankur7470/AI-Powered-Wellness-Board.git
+cd AI-Powered-Wellness-Board
 
 # 2. Install dependencies
 npm install
